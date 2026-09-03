@@ -4,10 +4,8 @@ import 'package:wassel/core/utils/colors_data.dart';
 import 'package:wassel/features/onboarding/data/onboarding_data.dart';
 
 class ScrollPages extends StatelessWidget {
-  const ScrollPages({
-    super.key,
-    required PageController pageController,
-  }) : _pageController = pageController;
+  const ScrollPages({super.key, required PageController pageController})
+    : _pageController = pageController;
 
   final PageController _pageController;
 

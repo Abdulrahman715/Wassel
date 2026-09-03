@@ -11,13 +11,11 @@ class RegisterViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 40),
-        HeadAuth(authType: 'انشاء حساب ', subText: 'مرحبا بك فى واصل !',),
-    
+        HeadAuth(authType: 'انشاء حساب ', subText: 'مرحبا بك فى واصل !'),
+
         SizedBox(height: 60),
-    
-        Expanded(
-          child: AuthRegisterBody(),
-        ),
+
+        Expanded(child: AuthRegisterBody()),
       ],
     );
   }

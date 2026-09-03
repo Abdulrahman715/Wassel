@@ -17,20 +17,16 @@ class WelcomeViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 2,  
-            child: Center(
-              child: Image.network(
-                AssetData.welcomeImage,
-              ),
-            ),
+            flex: 2,
+            child: Center(child: Image.network(AssetData.welcomeImage)),
           ),
-          
+
           WelcomeContent(),
-          
+
           const Spacer(), // هذا سيقوم بدفع الزر للأسفل مهما كان طول الشاشة
           CustomElevatedButton(
-            buttonText: AppStrings.getStartedButton, 
-            onPressed: (){
+            buttonText: AppStrings.getStartedButton,
+            onPressed: () {
               GoRouter.of(context).push(AppRouter.kOnboardingView);
             },
           ),

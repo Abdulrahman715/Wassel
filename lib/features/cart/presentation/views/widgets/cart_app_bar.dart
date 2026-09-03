@@ -12,10 +12,13 @@ class CartAppBar extends StatelessWidget {
       scrolledUnderElevation: 0,
       backgroundColor: ColorsData.whiteColor,
       centerTitle: true,
-      toolbarHeight: MediaQuery.of(context).size.height *0.1,
-      title: Text('طلباتى' , style: Styles.headMedium(context).copyWith(
-        color: ColorsData.primaryColor,
-      ),),
+      toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+      title: Text(
+        'طلباتى',
+        style: Styles.headMedium(
+          context,
+        ).copyWith(color: ColorsData.primaryColor),
+      ),
       automaticallyImplyLeading: false,
     );
   }

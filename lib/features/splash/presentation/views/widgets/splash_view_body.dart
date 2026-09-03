@@ -34,28 +34,28 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: slidingAnimation,
-      builder: (context,_) {
+      builder: (context, _) {
         return SlideTransition(
-          position: slidingAnimation, 
+          position: slidingAnimation,
           child: Center(child: Image.network(AssetData.splashLogo)),
         );
-      }
+      },
     );
   }
 
   void initSlidingAnimation() {
-     // 1. تعريف الـ Controller
+    // 1. تعريف الـ Controller
     animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 3),
     );
-    
+
     // 2. تعريف حركة اللوجو (من أسفل للأعلى مثلاً)
     slidingAnimation = Tween<Offset>(
       begin: Offset(0, 2),
       end: Offset.zero,
     ).animate(animationController);
-    
+
     // 3. شغلته
     animationController.forward();
   }

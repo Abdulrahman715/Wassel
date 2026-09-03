@@ -1,13 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:wassel/core/utils/styles.dart';
 import 'package:wassel/features/home/data/models/category_model.dart';
 
 class CategoryBody extends StatelessWidget {
-  const CategoryBody({
-    super.key,
-    required this.category,
-  });
+  const CategoryBody({super.key, required this.category});
 
   final CategoryModel category;
 
@@ -16,13 +12,9 @@ class CategoryBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.network(
-          category.image,
-          height: 35,
-          fit: BoxFit.contain,
-        ),
+        Image.network(category.imageUrl, height: 55, fit: BoxFit.contain),
         const SizedBox(height: 10),
-        Text(category.name, style: Styles.textStyle20),
+        Text(category.description, style: Styles.textStyle20),
       ],
     );
   }

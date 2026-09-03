@@ -8,11 +8,7 @@ class ProfileViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        ProfileHeader(),
-        SizedBox(height: 10,),
-        ProfileOperations()
-      ],
+      children: [ProfileHeader(), SizedBox(height: 10), ProfileOperations()],
     );
   }
 }

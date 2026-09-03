@@ -9,7 +9,9 @@ class CategoriesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(child: CustomCategoryAppBar(title: 'فئات السوبر ماركت',)),
+        SliverToBoxAdapter(
+          child: CustomCategoryAppBar(title: 'فئات السوبر ماركت'),
+        ),
         SliverToBoxAdapter(child: SizedBox(height: 40)),
         SliverGridCategoriesBody(),
       ],

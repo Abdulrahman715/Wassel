@@ -20,4 +20,3 @@ class AuthRegisterBody extends StatelessWidget {
     );
   }
 }
-

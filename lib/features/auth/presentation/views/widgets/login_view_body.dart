@@ -11,13 +11,11 @@ class LoginViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 40),
-        HeadAuth(authType: 'تسجيل الدخول ', subText: 'مرحبا بعودتك فى واصل !',),
-    
+        HeadAuth(authType: 'تسجيل الدخول ', subText: 'مرحبا بعودتك فى واصل !'),
+
         SizedBox(height: 60),
-    
-        Expanded(
-          child: AuthLoginBody(),
-        ),
+
+        Expanded(child: AuthLoginBody()),
       ],
     );
   }

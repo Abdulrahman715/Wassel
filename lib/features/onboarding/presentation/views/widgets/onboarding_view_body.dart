@@ -23,9 +23,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: PageScrolling(pageController: _pageController),
-        ),
+        Expanded(child: PageScrolling(pageController: _pageController)),
 
         SizedBox(height: 20),
 

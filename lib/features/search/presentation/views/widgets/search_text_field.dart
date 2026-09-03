@@ -6,9 +6,6 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomSearchField(
-      readOnly: false, 
-      onTap: () {},
-    );
+    return CustomSearchField(readOnly: false, onTap: () {});
   }
 }

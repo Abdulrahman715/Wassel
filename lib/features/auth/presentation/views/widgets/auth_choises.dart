@@ -4,7 +4,13 @@ import 'package:wassel/core/utils/styles.dart';
 import 'package:wassel/core/widgets/custom_elevated_button.dart';
 
 class AuthChoises extends StatelessWidget {
-  const AuthChoises({super.key, required this.mainOperation, this.onPrimaryPressed, required this.secondaryOperation, this.onSecondaryPressed});
+  const AuthChoises({
+    super.key,
+    required this.mainOperation,
+    this.onPrimaryPressed,
+    required this.secondaryOperation,
+    this.onSecondaryPressed,
+  });
 
   final String mainOperation;
   final String secondaryOperation;

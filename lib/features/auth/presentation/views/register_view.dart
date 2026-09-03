@@ -10,10 +10,7 @@ class RegisterView extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: ColorsData.primaryColor,
-      body: SafeArea(
-        bottom: false, 
-        child: RegisterViewBody()
-      ),
+      body: SafeArea(bottom: false, child: RegisterViewBody()),
     );
   }
 }

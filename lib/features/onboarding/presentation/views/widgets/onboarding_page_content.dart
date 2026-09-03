@@ -13,10 +13,7 @@ class OnboardingPageContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          onboardingModel.title,
-          style: Styles.headMedium(context),
-        ),
+        Text(onboardingModel.title, style: Styles.headMedium(context)),
         const SizedBox(height: 30),
         Text(
           onboardingModel.description,

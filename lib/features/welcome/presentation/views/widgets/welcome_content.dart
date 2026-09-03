@@ -11,12 +11,11 @@ class WelcomeContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        
         const Text(
-            AppStrings.welcomeMessage,
-            textAlign: TextAlign.center,
-            style: Styles.textStyle30,
-          ),
+          AppStrings.welcomeMessage,
+          textAlign: TextAlign.center,
+          style: Styles.textStyle30,
+        ),
         Image.network(AssetData.subLogo),
         const SizedBox(height: 20),
         Text(

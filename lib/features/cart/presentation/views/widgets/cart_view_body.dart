@@ -37,7 +37,7 @@ class CartViewBody extends StatelessWidget {
           children: [
             const CartAppBar(),
             const SizedBox(height: 10),
-            
+
             // 1. قائمة المنتجات المضافة
             Expanded(
               child: items.isEmpty
@@ -62,7 +62,7 @@ class CartViewBody extends StatelessWidget {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha:0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 10,
                     offset: const Offset(0, -5),
                   ),
@@ -74,28 +74,43 @@ class CartViewBody extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('السعر الإجمالي', style: TextStyle(color: Colors.grey, fontSize: 12)),
+                      const Text(
+                        'السعر الإجمالي',
+                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                      ),
                       const SizedBox(height: 4),
                       Text(
                         '${total.toStringAsFixed(2)} ج.م',
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
                   ElevatedButton(
-                    onPressed: items.isEmpty ? null : () {
-                      // منطق إتمام الطلب (Checkout)
-                    },
+                    onPressed: items.isEmpty
+                        ? null
+                        : () {
+                            // منطق إتمام الطلب (Checkout)
+                          },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: ColorsData.primaryColor,
-                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 15,
+                      ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
                     child: const Text(
                       'إتمام الطلب',
-                      style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],

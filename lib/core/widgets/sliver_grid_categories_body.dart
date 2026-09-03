@@ -12,11 +12,11 @@ class SliverGridCategoriesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     // بيانات تجريبية مطابقة للصورة
     final List<CategoryModel> categories = [
-      CategoryModel(name: 'لحوم', image: AssetData.cornImage),
-      CategoryModel(name: 'خضراوات', image: AssetData.cornImage),
-      CategoryModel(name: 'فاكهة', image: AssetData.cornImage),
-      CategoryModel(name: 'البان', image: AssetData.cornImage),
-      CategoryModel(name: 'مجمدات', image: AssetData.cornImage),
+      CategoryModel(name: 'لحوم', imageUrl: AssetData.cornImage, id: 1, description: 'لحوم', createdAt: DateTime.now()),
+      CategoryModel(name: 'خضراوات', imageUrl: AssetData.cornImage, id: 2, description: 'خضراوات', createdAt: DateTime.now()),
+      CategoryModel(name: 'فاكهة', imageUrl: AssetData.cornImage, id: 3, description: 'فاكهة', createdAt: DateTime.now()),
+      CategoryModel(name: 'البان', imageUrl: AssetData.cornImage, id: 4, description: 'البان', createdAt: DateTime.now()),
+      CategoryModel(name: 'مجمدات', imageUrl: AssetData.cornImage, id: 5, description: 'مجمدات', createdAt: DateTime.now()),
     ];
 
     return SliverPadding(

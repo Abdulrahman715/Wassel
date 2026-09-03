@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wassel/features/home/data/models/product_model.dart';
 
 class ProductCardStyle extends StatelessWidget {
-  const ProductCardStyle({
-    super.key,
-    required this.product,
-  });
+  const ProductCardStyle({super.key, required this.product});
 
   final ProductModel product;
 
@@ -48,22 +45,14 @@ class ProductCardStyle extends StatelessWidget {
               children: [
                 Text(
                   '${product.price} EGP',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
                 //! temporary: for now, we will just show the heart icon without functionality
                 IconButton(
-                  onPressed: () {
-                  },
-                  icon: Icon(
-                    Icons.add,
-                    size: 20,
-                    color: Colors.black87,
-                  ),
+                  onPressed: () {},
+                  icon: Icon(Icons.add, size: 20, color: Colors.black87),
                 ),
-    
+
                 // BlocBuilder<FavouritesCubit, FavouritesState>(
                 //   builder: (context, state) {
                 //     var cubit = context.read<FavouritesCubit>();

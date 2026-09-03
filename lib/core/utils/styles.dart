@@ -36,8 +36,5 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
-  static const labelText = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-  );
+  static const labelText = TextStyle(fontSize: 18, fontWeight: FontWeight.w600);
 }

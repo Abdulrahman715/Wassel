@@ -30,13 +30,14 @@ class HomeDrawer extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'تطبيق واصل',
+                  ' واصل',
                   style: Styles.textStyle20.copyWith(color: Colors.white),
                 ),
                 const Text(
                   'مرحباً بك في عالم التسوق السريع',
                   style: TextStyle(color: Colors.white70, fontSize: 12),
                 ),
+                const SizedBox(height: 10),
               ],
             ),
           ),

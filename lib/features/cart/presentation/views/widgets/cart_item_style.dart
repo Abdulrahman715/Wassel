@@ -23,7 +23,6 @@ class CartItemStyle extends StatelessWidget {
       background: Container(
         color: ColorsData.primaryColor,
         alignment: Alignment.centerLeft,
-        
       ),
       child: Container(),
     );

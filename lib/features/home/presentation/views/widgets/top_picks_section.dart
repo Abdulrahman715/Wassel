@@ -17,7 +17,7 @@ class TopPicksSection extends StatelessWidget {
         price: 1.39,
         image: AssetData.cornImage,
         category: 'خضروات',
-      ), 
+      ),
       ProductModel(
         id: 1,
         name: 'طماطم',
@@ -25,7 +25,7 @@ class TopPicksSection extends StatelessWidget {
         price: 6.99,
         image: AssetData.cornImage,
         category: 'خضروات',
-      ), 
+      ),
     ];
 
     return Column(
@@ -47,9 +47,7 @@ class TopPicksSection extends StatelessWidget {
             itemCount: products.length,
             separatorBuilder: (context, index) => const SizedBox(width: 15),
             itemBuilder: (context, index) {
-              return ProductCard(
-                product: products[index],
-              );
+              return ProductCard(product: products[index]);
             },
           ),
         ),

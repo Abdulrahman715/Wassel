@@ -11,13 +11,13 @@ class ProfileHeader extends StatelessWidget {
       padding: EdgeInsetsGeometry.symmetric(horizontal: 20, vertical: 20),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.095,
-        width:double.infinity,
+        width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black45),
           borderRadius: BorderRadius.circular(40),
           color: ColorsData.iconBackground,
         ),
-        child:MainProfileData(),
+        child: MainProfileData(),
       ),
     );
   }

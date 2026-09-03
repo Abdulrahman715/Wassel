@@ -1,13 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:wassel/core/utils/colors_data.dart';
 import 'package:wassel/features/onboarding/data/models/onboarding_model.dart';
 
 class IconStyle extends StatelessWidget {
-  const IconStyle({
-    super.key,
-    required this.onboardingModel,
-  });
+  const IconStyle({super.key, required this.onboardingModel});
 
   final OnboardingModel onboardingModel;
 
