@@ -15,7 +15,7 @@ class CategoriesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCategoriesCubit, HomeCategoriesState>(
       builder: (context, state) {
-        print('CURRENT STATE IS: ${state.runtimeType}'); // <--- اطبع الحالة هنا
+        // print('CURRENT STATE IS: ${state.runtimeType}'); // <--- اطبع الحالة هنا
         if (state is HomeCategoriesSuccess) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.2, // ارتفاع القسم

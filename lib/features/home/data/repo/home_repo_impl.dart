@@ -21,7 +21,7 @@ class HomeRepoImpl implements HomeRepo {
 
       return Right(categories);
     } catch (e) {
-      print('ERROR IS: $e'); // اطبع الخطأ لمعرفته
+      // print('ERROR IS: $e'); // اطبع الخطأ لمعرفته
       if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
       } else {

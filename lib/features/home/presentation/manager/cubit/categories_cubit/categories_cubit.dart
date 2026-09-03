@@ -17,11 +17,11 @@ class HomeCategoriesCubit extends Cubit<HomeCategoriesState> {
 
     result.fold(
       (isError) {
-        print('ERROR IS: $isError'); // اطبع الخطأ لمعرفته
+        // print('ERROR IS: $isError'); // اطبع الخطأ لمعرفته
         emit(HomeCategoriesFailure(errMessage: isError.errMessage));
       },
       (categories) {
-        print('CATEGORIES ARE: $categories'); // اطبع الفئات لمعرفته
+        // print('CATEGORIES ARE: $categories'); // اطبع الفئات لمعرفته
         emit(HomeCategoriesSuccess(homeCategories: categories));
       },
     );
