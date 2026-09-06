@@ -4,6 +4,7 @@ import 'package:wassel/core/service/setup_service_locator.dart';
 import 'package:wassel/core/utils/styles.dart';
 import 'package:wassel/features/home/data/repo/home_repo_impl.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/categories_cubit/categories_cubit.dart';
+import 'package:wassel/features/home/presentation/manager/cubit/home_random_products_cubit/home_random_products_cubit.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/home_top_products_cubit/home_top_products_cubit.dart';
 import 'package:wassel/features/home/presentation/views/widgets/categories_section.dart';
 import 'package:wassel/features/home/presentation/views/widgets/discover_grid_section.dart';
@@ -24,6 +25,9 @@ class HomeViewBody extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HomeTopProductsCubit(getIt.get<HomeRepoImpl>()),
+        ),
+        BlocProvider(
+          create: (context) => HomeRandomProductsCubit(getIt.get<HomeRepoImpl>()),
         ),
       ],
       child: Padding(

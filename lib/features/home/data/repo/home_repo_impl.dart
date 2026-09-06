@@ -42,6 +42,26 @@ class HomeRepoImpl implements HomeRepo {
 
       return Right(topProducts);
     } catch (e) {
+      // print('ERROR IS: $e'); // اطبع الخطأ لمعرفته
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      } else {
+        return Left(ServerFailure(errMessage: e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ProductModel>>> getRandomProducts() async {
+    try {
+      var data = await apiService.getData('products/random?limit=50');
+
+      List<ProductModel> randomProducts = (data as List)
+          .map((e) => ProductModel.fromJson(e))
+          .toList();
+
+      return Right(randomProducts);
+    } catch (e) {
       print('ERROR IS: $e'); // اطبع الخطأ لمعرفته
       if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
