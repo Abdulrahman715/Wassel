@@ -12,7 +12,7 @@ class CategoryModel extends Equatable {
     required this.name,
     required this.description,
     required this.imageUrl,
-    required this.createdAt, 
+    required this.createdAt,
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(

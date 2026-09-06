@@ -33,7 +33,7 @@ class ProductCardStyle extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              product.name,
+              product.description,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               textAlign: TextAlign.center,
@@ -52,24 +52,6 @@ class ProductCardStyle extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(Icons.add, size: 20, color: Colors.black87),
                 ),
-
-                // BlocBuilder<FavouritesCubit, FavouritesState>(
-                //   builder: (context, state) {
-                //     var cubit = context.read<FavouritesCubit>();
-                //     bool isFav = cubit.isProductInFavourites(product);
-                //     return IconButton(
-                //       onPressed: () {
-                //         //! عند الضغط على أيقونة القلب، يتم إضافة أو إزالة المنتج من قائمة المفضلة باستخدام الكيوبت
-                //         cubit.addAndRemoveFromFavourites(product);
-                //       },
-                //       icon: Icon(
-                //         isFav ? Icons.favorite : Icons.favorite_border,
-                //         size: 20,
-                //         color: isFav ? Colors.red : Colors.grey[500],
-                //       ),
-                //     );
-                //   },
-                // ),
               ],
             ),
             SizedBox(height: 10),
