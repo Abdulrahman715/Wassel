@@ -19,7 +19,7 @@ class SearchViewBody extends StatelessWidget {
           Text('Search Result', style: Styles.textStyle18),
 
           Expanded(
-            child: CustomScrollView(slivers: [SliverGridProductsBody()]),
+            child: CustomScrollView(slivers: [SliverGridProductsBody(products: [],)]),
           ),
         ],
       ),

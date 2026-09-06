@@ -11,7 +11,7 @@ class SingleCategoryViewBody extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(child: CustomSingleCategoryAppBar()),
         SliverToBoxAdapter(child: SizedBox(height: 40)),
-        SliverGridProductsBody(),
+        SliverGridProductsBody(products: [],),
       ],
     );
   }
