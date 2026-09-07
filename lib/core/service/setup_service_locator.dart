@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:wassel/core/service/api_service.dart';
+import 'package:wassel/features/categories/data/repo/categories_repo_impl.dart';
 import 'package:wassel/features/home/data/repo/home_repo_impl.dart';
 
 final getIt = GetIt.instance;
@@ -18,4 +19,5 @@ void setupServiceLocator() {
   );
 
   getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(getIt.get<ApiService>()));
+  getIt.registerSingleton<CategoriesRepoImpl>(CategoriesRepoImpl(getIt.get<ApiService>()));
 }

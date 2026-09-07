@@ -19,50 +19,12 @@ class SearchViewBody extends StatelessWidget {
           Text('Search Result', style: Styles.textStyle18),
 
           Expanded(
-            child: CustomScrollView(slivers: [SliverGridProductsBody(products: [],)]),
+            child: CustomScrollView(
+              slivers: [SliverGridProductsBody(products: [])],
+            ),
           ),
         ],
       ),
     );
   }
 }
-
-//  Expanded(
-//             child: BlocBuilder<SearchCubit, SearchState>(
-//               builder: (context, state) {
-//                 if (state is SearchSuccess) {
-//                   return ListView.builder(
-//                     itemCount: state.searchBooks.length,
-//                     itemBuilder: (context, index) {
-//                       return Padding(
-//                         padding: EdgeInsetsGeometry.symmetric(vertical: 4),
-//                         child: CustomBestSellerItem(
-//                           bookModel: state.searchBooks[index],
-//                         ),
-//                       );
-//                     },
-//                   );
-//                 } else if (state is SearchFailure) {
-//                   return CustomErrorMessage(message: state.errorMessage);
-//                 } else if (state is SearchInitial) {
-//                   return Center(
-//                     child: Text(
-//                       'Search for books, authors, genres...',
-//                       style: Styles.textStyle25,
-//                       textAlign: TextAlign.center,
-//                     ),
-//                   );
-//                 } else {
-//                   return ListView.builder(
-//                     itemCount: 6,
-//                     itemBuilder: (context, index) {
-//                       return Padding(
-//                         padding: EdgeInsetsGeometry.symmetric(vertical: 4),
-//                         child: CustomBookItemShimmer(),
-//                       );
-//                     },
-//                   );
-//                 }
-//               },
-//             ),
-//           ),

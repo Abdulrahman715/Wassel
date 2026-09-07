@@ -16,6 +16,7 @@ import 'package:wassel/features/home/presentation/views/widgets/top_picks_sectio
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

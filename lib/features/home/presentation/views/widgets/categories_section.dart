@@ -26,7 +26,10 @@ class CategoriesSection extends StatelessWidget {
               itemBuilder: (context, index) {
                 return CategoryItem(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kCategoriesView);
+                    GoRouter.of(context).push(
+                      AppRouter.kCategoriesView,
+                      extra: state.homeCategories[index],// تمرير الـ CategoryModel بالكامل هنا
+                    ); //! هنا هنبعت القسم بالكامل اللى اليوزر داس عليه
                   },
                   category: state.homeCategories[index],
                 );
