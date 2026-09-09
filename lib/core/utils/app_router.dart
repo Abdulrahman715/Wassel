@@ -59,7 +59,9 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSingleCategoryView,
-        builder: (context, state) => const SingleCategoryView(),
+        builder: (context, state) => SingleCategoryView(
+          categoryModel: state.extra as CategoryModel
+        ),
       ),
       GoRoute(
         path: kCategoriesView,

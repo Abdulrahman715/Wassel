@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wassel/core/service/setup_service_locator.dart';
-import 'package:wassel/features/categories/data/cubit/cubit/categories_cubit.dart';
+import 'package:wassel/features/categories/presentation/cubit/cubit/categories_cubit.dart';
 import 'package:wassel/features/categories/data/repo/categories_repo_impl.dart';
 import 'package:wassel/features/categories/presentation/views/widgets/categories_view_body.dart';
 import 'package:wassel/features/home/data/models/category_model.dart';
