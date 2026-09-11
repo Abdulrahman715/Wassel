@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wassel/core/utils/button_shape.dart';
 import 'package:wassel/core/utils/styles.dart';
+import 'package:wassel/features/home/data/models/category_model.dart';
 
 class CustomSingleCategoryAppBar extends StatelessWidget {
-  const CustomSingleCategoryAppBar({super.key});
+  const CustomSingleCategoryAppBar({super.key, required this.categoryModel});
+
+  final CategoryModel categoryModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class CustomSingleCategoryAppBar extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
-          const Text('الخضراوات', style: Styles.textStyle25),
+          Text(categoryModel.description, style: Styles.textStyle25),
           const SizedBox(width: 48), // مساحة فارغة لتوازن التصميم
         ],
       ),

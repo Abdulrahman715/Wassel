@@ -10,7 +10,7 @@ class SliverGridProductsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8),
       sliver: SliverGrid(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // عنصرين في كل صف

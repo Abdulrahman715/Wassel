@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:wassel/features/home/data/models/product_model.dart';
 
 class CategoryModel extends Equatable {
   final int id;
@@ -7,6 +8,7 @@ class CategoryModel extends Equatable {
   final String imageUrl;
   final DateTime createdAt;
   final List<CategoryModel> subcategories;
+  final List<ProductModel> products;
 
   const CategoryModel({
     required this.id,
@@ -15,6 +17,7 @@ class CategoryModel extends Equatable {
     required this.imageUrl,
     required this.createdAt,
     this.subcategories = const [],
+    this.products = const [],
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
@@ -25,8 +28,13 @@ class CategoryModel extends Equatable {
     createdAt: DateTime.parse(json['created_at'] as String),
     subcategories: json['subcategories'] != null
         ? (json['subcategories'] as List)
-            .map((e) => CategoryModel.fromJson(e as Map<String, dynamic>))
-            .toList()
+              .map((e) => CategoryModel.fromJson(e as Map<String, dynamic>))
+              .toList()
+        : [],
+    products: json['products'] != null
+        ? (json['products'] as List)
+              .map((e) => ProductModel.fromJson(e as Map<String, dynamic>))
+              .toList()
         : [],
   );
 
@@ -37,6 +45,7 @@ class CategoryModel extends Equatable {
     'image_url': imageUrl,
     'created_at': createdAt.toIso8601String(),
     'subcategories': subcategories.map((e) => e.toJson()).toList(),
+    'products': products.map((e) => e.toJson()).toList(),
   };
 
   @override
@@ -50,5 +59,6 @@ class CategoryModel extends Equatable {
     imageUrl,
     createdAt,
     subcategories,
+    products,
   ];
 }

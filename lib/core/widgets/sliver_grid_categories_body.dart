@@ -11,7 +11,6 @@ class SliverGridCategoriesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       sliver: SliverGrid(
@@ -19,14 +18,28 @@ class SliverGridCategoriesBody extends StatelessWidget {
           crossAxisCount: 2, // عنصرين في كل صف
           mainAxisSpacing: 8, // المسافة الرأسية
           crossAxisSpacing: 3, // المسافة الأفقية
-          childAspectRatio: 1, // نسبة العرض للطول (اضبطها لتناسب حجم الكارت)
+          childAspectRatio: 1, // نسبة العرض للطول
         ),
         delegate: SliverChildBuilderDelegate((context, index) {
+          final category = categories[index];
           return CategoryItem(
             onTap: () {
-              GoRouter.of(context).push(AppRouter.kSingleCategoryView);
+              // التحقق: هل القسم يحتوي على أقسام فرعية أخرى بداخله؟
+              if (category.subcategories.isNotEmpty) {
+                // إذا كان لديه أقسام فرعية (مثل المطاعم)، افتح شاشة الفئات لعرضها
+                GoRouter.of(context).push(
+                  AppRouter.kCategoriesView,
+                  extra: category,
+                );
+              } else {
+                // إذا لم يكن لديه أقسام فرعية ووصل للنهاية (مثل لحوم)، افتح شاشة المنتجات
+                GoRouter.of(context).push(
+                  AppRouter.kSingleCategoryView,
+                  extra: category,
+                );
+              }
             },
-            category: categories[index],
+            category: category,
           );
         }, childCount: categories.length),
       ),
