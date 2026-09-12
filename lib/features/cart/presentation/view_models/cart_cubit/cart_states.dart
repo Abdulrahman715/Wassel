@@ -4,9 +4,9 @@ abstract class CartStates {}
 
 class CartInitialState extends CartStates {}
 
-class CartUpdatedStata extends CartStates {
+class CartUpdatedState extends CartStates {
   final List<CartItemModel> cartItems;
   final double totalPrice;
 
-  CartUpdatedStata(this.cartItems, this.totalPrice);
+  CartUpdatedState(this.cartItems, this.totalPrice);
 }

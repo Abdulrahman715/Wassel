@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wassel/core/utils/show_snack_bar_message.dart';
+import 'package:wassel/features/cart/data/models/cart_item_model.dart';
+import 'package:wassel/features/cart/presentation/view_models/cart_cubit/cart_cubit.dart';
 import 'package:wassel/features/home/data/models/product_model.dart';
 
 class ProductCardStyle extends StatelessWidget {
@@ -49,7 +53,21 @@ class ProductCardStyle extends StatelessWidget {
                 ),
                 //! temporary: for now, we will just show the heart icon without functionality
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //! Add functionality to add the product to cart
+                    // 1. إنشاء عنصر السلة من المنتج الحالي
+                    CartItemModel cartItem = CartItemModel(
+                      productModel: product,
+                      id: product.id, // تأكد أن الـ ProductModel يحتوي على id
+                      quantity: 1, // الكمية المبدئية عند الضغط لأول مرة
+                    );
+
+                    // 2. إرساله للـ Cubit للإضافة
+                    context.read<CartCubit>().addToCart(cartItem);
+
+                    // 3. رسالة نجاح خفيفة للمستخدم
+                    showSnackBarMessage(context, snackBarMessage: "تم إضافة المنتج للسلة");
+                  },
                   icon: Icon(Icons.add, size: 20, color: Colors.black87),
                 ),
               ],

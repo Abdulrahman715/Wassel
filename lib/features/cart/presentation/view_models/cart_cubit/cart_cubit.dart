@@ -5,13 +5,13 @@ import 'package:wassel/features/cart/presentation/view_models/cart_cubit/cart_st
 class CartCubit extends Cubit<CartStates> {
   CartCubit() : super(CartInitialState());
 
-  final List<CartItemModel> cartItems = [];
+  final List<CartItemModel> _cartItems = [];
 
   //! to protect data , clean code , full control with cubit only
-  List<CartItemModel> get cartList => cartItems;
+  List<CartItemModel> get cartList => List.unmodifiable(_cartItems);
 
   //! to calc the final Price of shopping
-  double get totalPrice => cartItems.fold(
+  double get totalPrice => _cartItems.fold(
     0,
     (sum, item) => sum + item.productModel.price * item.quantity,
   );
@@ -19,15 +19,18 @@ class CartCubit extends Cubit<CartStates> {
   //! اضافة منتج
   void addToCart(CartItemModel newItem) {
     //! if user add the same product , that is already exist in cart
-    int index = cartItems.indexWhere(
+    int index = _cartItems.indexWhere(
       (item) => item.productModel.id == newItem.productModel.id,
     );
 
     if (index != -1) //!  موجود
     {
-      cartItems[index].quantity += newItem.quantity; //! نزود الكمية
+      //! نزود الكمية
+      _cartItems[index] = _cartItems[index].copyWith(
+        quantity: _cartItems[index].quantity + newItem.quantity,
+      );
     } else {
-      cartItems.add(newItem); //! لو مش موجود قبل كده ضيفه كمنتج جديد فى الكارت
+      _cartItems.add(newItem); //! لو مش موجود قبل كده ضيفه كمنتج جديد فى الكارت
     }
 
     updateCart(); //! after any change , calc total price and send new state
@@ -35,28 +38,53 @@ class CartCubit extends Cubit<CartStates> {
 
   //! حذف منتج
   void removeFromCart(CartItemModel oldItem) {
-    cartItems.remove(oldItem);
+    _cartItems.removeWhere(
+      (item) => item.productModel.id == oldItem.productModel.id,
+    );
+    updateCart();
+  }
+
+  //! if user decrease product until quantity = 0 , delete product
+  void decreaseQuantity(CartItemModel item) {
+    final index = _cartItems.indexWhere(
+      (cartItem) => cartItem.productModel.id == item.productModel.id,
+    );
+
+    if (index == -1) {
+      return;
+    }
+
+    if (_cartItems[index].quantity > 1) {
+      _cartItems[index] = _cartItems[index].copyWith(
+        quantity: _cartItems[index].quantity - 1,
+      );
+    } else {
+      _cartItems.removeAt(index);
+    }
+
+    updateCart();
+  }
+
+  //! زيادة كمية منتج داخل السلة
+  void increaseQuantity(CartItemModel item) {
+    final index = _cartItems.indexWhere(
+      (cartItem) => cartItem.productModel.id == item.productModel.id,
+    );
+
+    if (index == -1) {
+      return;
+    }
+
+    _cartItems[index] = _cartItems[index].copyWith(
+      quantity: _cartItems[index].quantity + 1,
+    );
     updateCart();
   }
 
   //! دالة تحديث السعر مع كل عملية
   void updateCart() {
-    double total = 0; //! inital value
-    for (var item in cartItems) {
-      //! loop to all product in cart and calculate total price
-      total += (item.productModel.price * item.quantity);
-    }
-    emit(CartUpdatedStata(List.from(cartItems), total));
-  }
-
-  //! if user decrease product until quantity = 0 , delete product
-  void decreaseQuantity(CartItemModel item) {
-    if (item.quantity > 1) {
-      item.quantity--;
-    } else {
-      cartItems.remove(item);
-    }
-
-    updateCart();
+    //! بعد كل عملية تحديث على السلة , نرسل الحالة الجديدة مع السعر الجديد
+    //? مش لازم احسب السعر تانى هنا لانى عامل getter للـ totalPrice
+    emit(CartUpdatedState(List.from(_cartItems), totalPrice));
   }
 }

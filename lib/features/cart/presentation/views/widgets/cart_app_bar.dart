@@ -3,7 +3,9 @@ import 'package:wassel/core/utils/colors_data.dart';
 import 'package:wassel/core/utils/styles.dart';
 
 class CartAppBar extends StatelessWidget {
-  const CartAppBar({super.key});
+  const CartAppBar({super.key, this.onBackToHome});
+
+  final void Function()? onBackToHome;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,10 @@ class CartAppBar extends StatelessWidget {
         ).copyWith(color: ColorsData.primaryColor),
       ),
       automaticallyImplyLeading: false,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_circle_left_outlined),
+        onPressed: onBackToHome,
+      ),
     );
   }
 }
