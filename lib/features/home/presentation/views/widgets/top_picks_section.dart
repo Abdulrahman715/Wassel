@@ -25,7 +25,7 @@ class TopPicksSection extends StatelessWidget {
           builder: (context, state) {
             if (state is HomeTopProductsSuccess) {
               return SizedBox(
-                height: 220, // ارتفاع الكارت
+                height: MediaQuery.of(context).size.height * 0.32, // ارتفاع الكارت
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),

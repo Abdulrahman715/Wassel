@@ -24,7 +24,7 @@ class CustomSingleCategoryAppBar extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
-          Text(categoryModel.description, style: Styles.textStyle25),
+          Text(categoryModel.name, style: Styles.textStyle25),
           const SizedBox(width: 48), // مساحة فارغة لتوازن التصميم
         ],
       ),

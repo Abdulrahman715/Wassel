@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wassel/core/utils/show_snack_bar_message.dart';
+import 'package:wassel/core/utils/styles.dart';
 import 'package:wassel/features/cart/data/models/cart_item_model.dart';
 import 'package:wassel/features/cart/presentation/view_models/cart_cubit/cart_cubit.dart';
 import 'package:wassel/features/home/data/models/product_model.dart';
@@ -37,11 +38,17 @@ class ProductCardStyle extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              product.description,
+              product.name,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: Styles.textStyle20,
+            ),
+            SizedBox(height: 10),
+            Text(
+              '( ${product.description} )',
+              textAlign: TextAlign.center,
+              style: Styles.textStyle16,
             ),
             SizedBox(height: 10),
             Row(

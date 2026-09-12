@@ -21,7 +21,7 @@ class CategoryBody extends StatelessWidget {
           placeholder: (context, url) => const CircularProgressIndicator(),
         ),
         const SizedBox(height: 10),
-        Text(category.description, style: Styles.textStyle20),
+        Text(category.name, style: Styles.textStyle20),
       ],
     );
   }

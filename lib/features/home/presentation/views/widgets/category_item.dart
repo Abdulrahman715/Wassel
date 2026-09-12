@@ -18,7 +18,7 @@ class CategoryItem extends StatelessWidget {
           // المربع الذي يحتوي على الصورة
           Container(
             height: MediaQuery.of(context).size.height * 0.15,
-            width: MediaQuery.of(context).size.height * 0.15,
+            width: MediaQuery.of(context).size.height * 0.17,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black26, width: 1),
               color: Colors.white,

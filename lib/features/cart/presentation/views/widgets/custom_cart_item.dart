@@ -36,7 +36,7 @@ class CustomCartItem extends StatelessWidget {
           children: [
             //! صورة المنتج
             CartProductImage(item: item),
-            const SizedBox(width: 26),
+            const SizedBox(width: 8), // مسافة بين الصورة والتفاصيل
             // 📄 التفاصيل
             Expanded(
               child: Row(

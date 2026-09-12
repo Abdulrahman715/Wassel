@@ -17,10 +17,12 @@ class CartProductBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(item.productModel.description, style: Styles.labelText),
+        Text(item.productModel.name, style: Styles.labelText),
         const SizedBox(height: 10),
         Text(
-          item.productModel.name,
+          '( ${item.productModel.description} )',
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
           style: Styles.textStyle16.copyWith(
             fontWeight: FontWeight.w500,
           ),
