@@ -19,7 +19,7 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: ColorsData.primaryColor,
         textStyle: Styles.textStyle18,
         foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       ),
       child: Text(buttonText),
     );

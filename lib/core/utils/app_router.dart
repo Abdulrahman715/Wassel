@@ -4,6 +4,7 @@ import 'package:wassel/features/auth/presentation/views/register_view.dart';
 import 'package:wassel/features/cart/presentation/views/cart_view.dart';
 import 'package:wassel/features/categories/presentation/views/categories_view.dart';
 import 'package:wassel/features/home/data/models/category_model.dart';
+import 'package:wassel/features/order_confirm/presentation/views/order_confirm_view.dart';
 import 'package:wassel/features/single_category/presentation/views/single_category_view.dart';
 import 'package:wassel/features/home/presentation/views/home_view.dart';
 import 'package:wassel/features/onboarding/presentation/views/onboarding_view.dart';
@@ -26,6 +27,7 @@ abstract class AppRouter {
   static const kSingleCategoryView = '/singleCategoryView';
   static const kCategoriesView = '/categoriesView';
   static const kSearchView = '/searchView';
+  static const kOrderConfirmView = '/orderConfirmView';
 
 
   static final router = GoRouter(
@@ -71,6 +73,10 @@ abstract class AppRouter {
       GoRoute(
         path: kSearchView,
         builder: (context, state) => const SearchView(),
+      ),
+      GoRoute(
+        path: kOrderConfirmView,
+        builder: (context, state) => const OrderConfirmView(),
       ),
     ],
   );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:wassel/core/utils/app_router.dart';
 import 'package:wassel/core/utils/styles.dart';
 import 'package:wassel/features/cart/presentation/view_models/cart_cubit/cart_cubit.dart';
 import 'package:wassel/features/cart/presentation/view_models/cart_cubit/cart_states.dart';
@@ -49,7 +51,10 @@ class CartCheckoutSection extends StatelessWidget {
                       backgroundColor: Colors.black,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      // Navigate to the order confirmation page
+                      GoRouter.of(context).push(AppRouter.kOrderConfirmView);
+                    },
                     child: Text(
                       "اتمام الطلب",
                       style: Styles.labelText.copyWith(color: Colors.white),
