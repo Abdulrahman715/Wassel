@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wassel/features/cart/presentation/views/cart_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:wassel/core/utils/app_router.dart';
 import 'package:wassel/features/home/presentation/views/widgets/custom_button_navigation_bar.dart';
+// import 'package:wassel/features/home/presentation/views/widgets/home_app_bar.dart';
 import 'package:wassel/features/home/presentation/views/widgets/home_drawer.dart';
 import 'package:wassel/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:wassel/features/orders/presentation/views/orders_view.dart';
@@ -17,19 +19,24 @@ class _HomeViewState extends State<HomeView> {
   int selectedPageIndex = 0;
 
   void changePage(int index) {
+    if (index == 2) {
+      context.push(AppRouter.kCartView);
+      return;
+    }
+
+    int pageIndex = index;
+
+    if (index > 2) {
+      pageIndex = index - 1;
+    }
     setState(() {
-      selectedPageIndex = index;
+      selectedPageIndex = pageIndex;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = [
-      HomeViewBody(),
-      OrdersView(),
-      CartView(),
-      ProfileView(),
-    ];
+    List<Widget> pages = [HomeViewBody(), OrdersView(), ProfileView()];
 
     return Scaffold(
       drawer: const HomeDrawer(), // ربط القائمة الجانبية هنا
@@ -39,7 +46,9 @@ class _HomeViewState extends State<HomeView> {
       body: pages[selectedPageIndex],
 
       bottomNavigationBar: CustomBottomNavigationBar(
-        selectedPageIndex: selectedPageIndex,
+        selectedPageIndex: selectedPageIndex > 1
+            ? selectedPageIndex + 1
+            : selectedPageIndex,
         onTap: changePage,
       ),
     );

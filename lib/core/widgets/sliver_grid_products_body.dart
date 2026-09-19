@@ -16,7 +16,7 @@ class SliverGridProductsBody extends StatelessWidget {
           crossAxisCount: 2, // عنصرين في كل صف
           mainAxisSpacing: 30, // المسافة الرأسية
           crossAxisSpacing: 15, // المسافة الأفقية
-          childAspectRatio: 0.6, // نسبة العرض للطول (اضبطها لتناسب حجم الكارت)
+          childAspectRatio: 0.56, // نسبة العرض للطول (اضبطها لتناسب حجم الكارت)
         ),
         delegate: SliverChildBuilderDelegate((context, index) {
           return ProductCard(product: products[index]);

@@ -30,22 +30,22 @@ class CustomCartItem extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 18.0),
+        padding: const EdgeInsets.only(left: 1.0, right: 25.0, top: 12.0, bottom: 8.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //! صورة المنتج
             CartProductImage(item: item),
-            const SizedBox(width: 8), // مسافة بين الصورة والتفاصيل
+            const SizedBox(width: 12), // مسافة بين الصورة والتفاصيل
             // 📄 التفاصيل
             Expanded(
               child: Row(
                 children: [
-                  Spacer(flex:1),
+                  // Spacer(flex:1),
                   //! تفاصيل المنتج (الاسم، الوصف، الكمية)
                   CartProductBody(item: item),
         
-                  const Spacer(flex: 4), // Spacer to push the delete icon to the far right
+                  // const Spacer(flex: 4), // Spacer to push the delete icon to the far right
                   //! icon to delete the item from the cart
                   IconButton(
                     onPressed: () {

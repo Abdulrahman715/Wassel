@@ -21,7 +21,7 @@ class CategoryModel extends Equatable {
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
-    id: json['id'] as int,
+    id: (json['id'] as num).toInt(), // تحويل آمن للـ id
     name: json['name'] as String,
     description: json['description'] as String,
     imageUrl: json['image_url'] as String,

@@ -56,7 +56,7 @@ class ProductCardStyle extends StatelessWidget {
               children: [
                 Text(
                   '${product.price} EGP',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: Styles.textStyle16,
                 ),
                 //! temporary: for now, we will just show the heart icon without functionality
                 IconButton(

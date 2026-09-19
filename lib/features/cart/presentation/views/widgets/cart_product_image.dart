@@ -9,7 +9,7 @@ class CartProductImage extends StatelessWidget {
   });
 
   final CartItemModel item;
-
+  
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -18,10 +18,10 @@ class CartProductImage extends StatelessWidget {
         item.productModel.imageUrl,
         fit: BoxFit.contain,
         height: MediaQuery.of(context).size.height * 0.12,
-        width: MediaQuery.of(context).size.width * 0.2,
+        width: MediaQuery.of(context).size.width * 0.12,
         errorBuilder: (context, error, stackTrace) => Container(
           height: MediaQuery.of(context).size.height * 0.12,
-          width: MediaQuery.of(context).size.width * 0.2,
+          width: MediaQuery.of(context).size.width * 0.12,
           color: Colors.grey[300],
           child: const Icon(Icons.image_not_supported, color: Colors.grey),
         ),

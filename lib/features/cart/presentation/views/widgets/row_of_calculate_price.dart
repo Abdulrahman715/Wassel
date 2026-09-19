@@ -44,7 +44,7 @@ class RowOfCalculatePrice extends StatelessWidget {
           //زر ممتلي (مش outline).
           isOutlined: false,
         ),
-        const SizedBox(width: 30),
+        const SizedBox(width: 15),
         // 💰 السعر
         Text(
           "${(item.productModel.price * item.quantity).toStringAsFixed(2)} ج.م",

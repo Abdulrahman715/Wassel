@@ -26,13 +26,13 @@ class ProductModel extends Equatable {
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    id: json['id'] as int,
-    categoryId: json['category_id'] as int,
+    id: (json['id'] as num).toInt(),
+    categoryId: (json['category_id'] as num).toInt(),
     name: json['name'] as String,
     description: json['description'] as String,
-    price: json['price'] as int,
+    price: (json['price'] as num).toInt(), // تحويل آمن حتى لو جاءت كـ double
     imageUrl: json['image_url'] as String,
-    orderCount: json['order_count'] as int?,
+    orderCount: (json['order_count'] as num?)?.toInt(),
     isActive: json['is_active'] as bool?,
     createdAt: json['created_at'] == null
         ? null

@@ -18,7 +18,7 @@ class HomeRandomProductsCubit extends Cubit<HomeRandomProductsState> {
 
     result.fold(
       (isError) {
-        emit(HomeRandomProductsFailure(errMessage: isError.errMessage));
+        emit(HomeRandomProductsFailure(errMessage: "حدث خطأ أثناء جلب المنتجات العشوائية"));
       },
       (randomProducts) {
         emit(HomeRandomProductsSuccess(randomProducts: randomProducts));
