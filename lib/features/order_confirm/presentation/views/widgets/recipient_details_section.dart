@@ -16,8 +16,8 @@ class RecipientDetailsSection extends StatelessWidget {
             headlineText: " تفاصيل المستلم :",
             leading: const Icon(Icons.person, color: Colors.green),
             mainTitle: "محمد على",
-            subTitle: "رقم الهاتف: 0123456789",
-            editAddress: "تغيير الاسم او رقم الهاتف",
+            subTitle: "102838474(20+)",
+            editAddress: 'نغيير',
             onPressed: () {
               // Handle edit recipient name action
             },

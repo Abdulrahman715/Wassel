@@ -7,18 +7,26 @@ class PaymentContainerStyle extends StatelessWidget {
     required this.paymentMethod,
     this.leadingIcon,
     this.onTap,
+    required this.isSelected,
   });
 
   final String paymentMethod;
   final Widget? leadingIcon;
   final void Function()? onTap;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
+        //! اطار ملون يحدد الاختيار النشط
+        border: Border.all(
+          color: isSelected ? Colors.blue : Colors.transparent,
+          width: 2,
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withAlpha(128),
@@ -30,7 +38,14 @@ class PaymentContainerStyle extends StatelessWidget {
       ),
       child: ListTile(
         leading: leadingIcon,
-        title: Text(paymentMethod , style:Styles.labelText.copyWith(fontSize: 16),),
+        title: Text(
+          paymentMethod,
+          style: Styles.labelText.copyWith(fontSize: 16),
+        ),
+        //! icon in the end of list tile to recognize this item choosed or not
+        trailing: isSelected
+            ? const Icon(Icons.check_circle, color: Colors.blue)
+            : const Icon(Icons.radio_button_unchecked, color: Colors.grey),
         onTap: onTap,
       ),
     );
