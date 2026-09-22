@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wassel/core/widgets/container_style_of_order_change_options.dart';
 import 'package:wassel/features/order_confirm/presentation/views/widgets/cash_details_body.dart';
 import 'package:wassel/features/order_confirm/presentation/views/widgets/payment_container_style.dart';
-import 'package:wassel/features/order_confirm/presentation/views/widgets/visa_details_body.dart';
 
 class PaymentMethodSection extends StatefulWidget {
   const PaymentMethodSection({super.key});
@@ -31,7 +31,11 @@ class _PaymentMethodSectionState extends State<PaymentMethodSection> {
           // 1. بطاقة الائتمان
           PaymentContainerStyle(
             paymentMethod: 'بطاقة ائتمان',
-            leadingIcon: const Icon(Icons.credit_card, color: Colors.blue, size: 30),
+            leadingIcon: const Icon(
+              Icons.credit_card,
+              color: Colors.blue,
+              size: 30,
+            ),
             isSelected: selectedIndex == 0,
             onTap: () {
               setState(() {
@@ -39,11 +43,23 @@ class _PaymentMethodSectionState extends State<PaymentMethodSection> {
               });
             },
           ),
-          
+
           // إذا اختر بطاقة الائتمان، افتح حقول الفيزا تحته مباشرة
           if (selectedIndex == 0) ...[
             const SizedBox(height: 12),
-            VisaDetailsBody(),
+            ContainerStyleOfOrderChangeOptions(
+              firstLabelText: 'رقم البطاقة',
+              firstPrefixIconForLabel: Icon(Icons.credit_card),
+              firstKeyboardType: TextInputType.number,
+              secondLabelText: 'MM/YY',
+              secondPrefixIconForLabel: Icon(Icons.calendar_today),
+              secondKeyboardType: TextInputType.datetime,
+              thirdLabelText: 'CVV',
+              thirdPrefixIconForLabel: Icon(Icons.security),
+              thirdKeyboardType: TextInputType.number, 
+              buttonText: 'حفظ البطاقة',
+              onPressed: (){},
+            ),
           ],
 
           const SizedBox(height: 15),
@@ -51,7 +67,11 @@ class _PaymentMethodSectionState extends State<PaymentMethodSection> {
           // 2. المحفظة الرقمية
           PaymentContainerStyle(
             paymentMethod: 'محفظة رقمية',
-            leadingIcon: const Icon(Icons.wallet, color: Colors.green, size: 30),
+            leadingIcon: const Icon(
+              Icons.wallet,
+              color: Colors.green,
+              size: 30,
+            ),
             isSelected: selectedIndex == 1,
             onTap: () {
               setState(() {
@@ -71,7 +91,11 @@ class _PaymentMethodSectionState extends State<PaymentMethodSection> {
           // 3. الدفع عند الاستلام (لا يحتاج لحقول إضافية)
           PaymentContainerStyle(
             paymentMethod: 'الدفع عند الاستلام',
-            leadingIcon: const Icon(Icons.local_shipping, color: Colors.orange, size: 30),
+            leadingIcon: const Icon(
+              Icons.local_shipping,
+              color: Colors.orange,
+              size: 30,
+            ),
             isSelected: selectedIndex == 2,
             onTap: () {
               setState(() {

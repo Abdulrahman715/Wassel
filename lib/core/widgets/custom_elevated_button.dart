@@ -5,10 +5,14 @@ import 'package:wassel/core/utils/styles.dart';
 class CustomElevatedButton extends StatelessWidget {
   final void Function()? onPressed;
   final String buttonText;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
   const CustomElevatedButton({
     super.key,
     this.onPressed,
     required this.buttonText,
+    this.backgroundColor,
+    this.foregroundColor,
   });
 
   @override
@@ -16,9 +20,9 @@ class CustomElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: ColorsData.primaryColor,
+        backgroundColor: backgroundColor ?? ColorsData.primaryColor,
         textStyle: Styles.textStyle18,
-        foregroundColor: Colors.white,
+        foregroundColor: foregroundColor ?? Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       ),
       child: Text(buttonText),
