@@ -37,15 +37,15 @@ class _UserAddressSectionState extends State<UserAddressSection> {
             firstLabelText: 'البلد / المحافظة',
             firstKeyboardType: TextInputType.name,
             firstPrefixIconForLabel: Icon(Icons.map_outlined),
-            secondLabelText: 'المنطقة أو تفاصيل الشارع',
+            secondLabelText: 'المنطقة',
             secondKeyboardType: TextInputType.name,
             secondPrefixIconForLabel: Icon(Icons.location_city),
-            thirdLabelText: 'علامة مميزة أن وجد !',
+            thirdLabelText: 'علامة مميزة ',
             thirdKeyboardType: TextInputType.name,
             thirdPrefixIconForLabel: Icon(Icons.location_city), 
             buttonText: 'حفظ العنوان',
             onPressed: (){
-              
+
             },
           ),
         ],

@@ -44,12 +44,12 @@ class _RecipientDetailsSectionState extends State<RecipientDetailsSection> {
               secondLabelText: 'رقم للتواصل',
               secondKeyboardType: TextInputType.phone,
               secondPrefixIconForLabel: Icon(Icons.phone_callback_outlined),
-              thirdLabelText: "رقم ثاني ان وجد !",
+              thirdLabelText: "رقم ثاني",
               thirdKeyboardType: TextInputType.phone,
               thirdPrefixIconForLabel: Icon(Icons.phone_disabled_outlined),
               buttonText: 'حفظ',
               onPressed: (){
-                
+
               },
             ),
           ],

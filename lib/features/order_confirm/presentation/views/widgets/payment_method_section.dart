@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wassel/core/utils/styles.dart';
 import 'package:wassel/core/widgets/container_style_of_order_change_options.dart';
 import 'package:wassel/features/order_confirm/presentation/views/widgets/cash_details_body.dart';
 import 'package:wassel/features/order_confirm/presentation/views/widgets/payment_container_style.dart';
@@ -16,7 +17,7 @@ class _PaymentMethodSectionState extends State<PaymentMethodSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -24,7 +25,7 @@ class _PaymentMethodSectionState extends State<PaymentMethodSection> {
           const Text(
             'طرق الدفع',
             textAlign: TextAlign.right,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: Styles.labelText,
           ),
           const SizedBox(height: 20),
 

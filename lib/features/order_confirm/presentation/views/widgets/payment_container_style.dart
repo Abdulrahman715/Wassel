@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wassel/core/utils/styles.dart';
+import 'package:wassel/features/order_confirm/presentation/views/widgets/list_tile_payment_method.dart';
 
 class PaymentContainerStyle extends StatelessWidget {
   const PaymentContainerStyle({
@@ -36,16 +36,10 @@ class PaymentContainerStyle extends StatelessWidget {
           ),
         ],
       ),
-      child: ListTile(
-        leading: leadingIcon,
-        title: Text(
-          paymentMethod,
-          style: Styles.labelText.copyWith(fontSize: 16),
-        ),
-        //! icon in the end of list tile to recognize this item choosed or not
-        trailing: isSelected
-            ? const Icon(Icons.check_circle, color: Colors.blue)
-            : const Icon(Icons.radio_button_unchecked, color: Colors.grey),
+      child: ListTilePaymentMethod(
+        leadingIcon: leadingIcon,
+        paymentMethod: paymentMethod,
+        isSelected: isSelected,
         onTap: onTap,
       ),
     );
