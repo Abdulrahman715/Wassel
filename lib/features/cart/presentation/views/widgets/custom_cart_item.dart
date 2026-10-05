@@ -35,7 +35,7 @@ class CustomCartItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //! صورة المنتج
-            CartProductImage(item: item),
+            CartProductImage(item: item , imageSrc: item.productModel.imageUrl),
             const SizedBox(width: 12), // مسافة بين الصورة والتفاصيل
             // 📄 التفاصيل
             Expanded(
