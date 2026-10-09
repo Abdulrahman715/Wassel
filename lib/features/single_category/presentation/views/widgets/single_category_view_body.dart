@@ -28,7 +28,7 @@ class SingleCategoryViewBody extends StatelessWidget {
                   emptyMessage: 'لا توجد منتجات لهذا القسم حتى الان',
                 ),
               )
-            : SliverGridProductsBody(products: products),
+            : SliverGridProductsBody(products: products, isLoading: false),
       ],
     );
   }

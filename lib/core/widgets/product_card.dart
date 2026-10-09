@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:wassel/core/widgets/loading_image_style.dart';
 import 'package:wassel/features/home/data/models/product_model.dart';
 import 'package:wassel/core/widgets/product_card_style.dart';
 
@@ -24,7 +25,7 @@ class ProductCard extends StatelessWidget {
             width: 120,
             fit: BoxFit.contain,
             errorWidget: (context, url, error) => const Icon(Icons.error),
-            placeholder: (context, url) => const CircularProgressIndicator(),
+            placeholder: (context, url) => LoadingImageStyle(),
           ),
         ),
       ],

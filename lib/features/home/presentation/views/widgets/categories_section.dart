@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:wassel/core/utils/app_router.dart';
 import 'package:wassel/core/utils/error_message.dart';
-import 'package:wassel/core/utils/loading_style.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/categories_cubit/categories_cubit.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/categories_cubit/categories_state.dart';
-import 'package:wassel/features/home/presentation/views/widgets/category_item.dart';
+import 'package:wassel/features/home/presentation/views/widgets/categories_section_body.dart';
 
 class CategoriesSection extends StatelessWidget {
   const CategoriesSection({super.key});
@@ -17,29 +14,14 @@ class CategoriesSection extends StatelessWidget {
       builder: (context, state) {
         // print('CURRENT STATE IS: ${state.runtimeType}'); // <--- اطبع الحالة هنا
         if (state is HomeCategoriesSuccess) {
-          return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2, // ارتفاع القسم
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: state.homeCategories.length,
-              separatorBuilder: (context, index) => const SizedBox(width: 10),
-              itemBuilder: (context, index) {
-                return CategoryItem(
-                  onTap: () {
-                    GoRouter.of(context).push(
-                      AppRouter.kCategoriesView,
-                      extra: state.homeCategories[index],// تمرير الـ CategoryModel بالكامل هنا
-                    ); //! هنا هنبعت القسم بالكامل اللى اليوزر داس عليه
-                  },
-                  category: state.homeCategories[index],
-                );
-              },
-            ),
+          return CategoriesSectionBody(
+            homeCategories: state.homeCategories,
+            isLoading: false,
           );
         } else if (state is HomeCategoriesFailure) {
           return ErrorMessage(errMessage: state.errMessage);
         } else {
-          return LoadingStyle();
+          return CategoriesSectionBody(homeCategories: null, isLoading: true);
         }
       },
     );
