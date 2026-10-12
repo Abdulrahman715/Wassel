@@ -40,9 +40,12 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
     color: Colors.grey,
   );
-  static const textStyle12 = TextStyle(
-    fontSize: 12,
-    color: Colors.grey,
+  static const textStyle12 = TextStyle(fontSize: 12, color: Colors.grey);
+
+  static const errorText = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: Colors.red,
   );
 
   static const labelText = TextStyle(fontSize: 18, fontWeight: FontWeight.w600);

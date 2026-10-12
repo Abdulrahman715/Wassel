@@ -20,4 +20,27 @@ class ApiService {
       throw ServerFailure.fromDioError(dioError);
     }
   }
+
+  Future<Map<String, dynamic>> postData(
+    String endPoint, {
+    required Map<String, dynamic> data,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      var response = await _dio.post(
+        '$_baseUrl$endPoint',
+        data: data,
+        //! أحياناً سيرفرات الـ Node.js بتطلع خطأ 422 لو الـ Header مش محدد صراحةً إنه application/json.
+        options: Options(headers: {'Content-Type': 'application/json'}),
+        queryParameters: queryParameters,
+      );
+      return response.data;
+    } on DioException catch (dioError) {
+      // 👈 اطبع استجابة السيرفر هنا عشان تشوف شكل الخطأ أو الـ JSON اللي راجع
+      print('=== DIO ERROR RESPONSE ===');
+      print(dioError.response?.data);
+      print('==========================');
+      throw ServerFailure.fromDioError(dioError);
+    }
+  }
 }

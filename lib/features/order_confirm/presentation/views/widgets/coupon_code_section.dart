@@ -18,7 +18,7 @@ class CouponCodeSection extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           CustomTextField(
-            mainText: 'أدخل رمز الكوبون',
+            mainText: 'أدخل رمز الكوبون', controller: TextEditingController(), obscureText: false,
           ),
           const SizedBox(height: 20),
         ],
