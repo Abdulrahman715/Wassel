@@ -28,9 +28,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     result.fold(
       (isError) {
         // 👈 اطبع رسالة الخطأ النهائية هنا
-        print('=== CUBIT FAILED MESSAGE ===');
-        print(isError.errMessage);
-        print('============================');
+        // print('=== CUBIT FAILED MESSAGE ===');
+        // print(isError.errMessage);
+        // print('============================');
         emit(RegisterFailure(errMessage: isError.errMessage));
       },
       (registerModel) {

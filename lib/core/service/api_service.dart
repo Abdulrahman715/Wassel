@@ -37,9 +37,9 @@ class ApiService {
       return response.data;
     } on DioException catch (dioError) {
       // 👈 اطبع استجابة السيرفر هنا عشان تشوف شكل الخطأ أو الـ JSON اللي راجع
-      print('=== DIO ERROR RESPONSE ===');
-      print(dioError.response?.data);
-      print('==========================');
+      // print('=== DIO ERROR RESPONSE ===');
+      // print(dioError.response?.data);
+      // print('==========================');
       throw ServerFailure.fromDioError(dioError);
     }
   }

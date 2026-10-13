@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wassel/features/auth/presentation/views/widgets/email_register_field.dart';
-import 'package:wassel/features/auth/presentation/views/widgets/name_register_field.dart';
-import 'package:wassel/features/auth/presentation/views/widgets/password_register_field.dart';
-import 'package:wassel/features/auth/presentation/views/widgets/phone_register_field.dart';
+import 'package:wassel/features/auth/presentation/views/widgets/email_auth_field.dart';
+import 'package:wassel/features/auth/presentation/views/widgets/name_auth_field.dart';
+import 'package:wassel/features/auth/presentation/views/widgets/password_auth_field.dart';
+import 'package:wassel/features/auth/presentation/views/widgets/phone_auth_field.dart';
 import 'package:wassel/features/auth/presentation/views/widgets/register_choises.dart';
 
 class RegisterFields extends StatefulWidget {
@@ -39,16 +39,16 @@ class _RegisterFieldsState extends State<RegisterFields> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // 1. فحص الاسم (يجب ألا يكون فارغاً وألا يكون أرقاماً فقط)
-          NameRegisterField(nameController: _nameController),
+          NameAuthField(nameController: _nameController),
           SizedBox(height: 30),
           // 2. فحص رقم التليفون (يجب أن يكون رقم مصري صحيح 11 رقم ويبدأ بـ 01)
-          PhoneRegisterField(phoneController: _phoneController),
+          PhoneAuthField(phoneController: _phoneController),
           SizedBox(height: 30),
           // 3. فحص الإيميل (يجب أن يحتوي على @ و .com مثلاً)
-          EmailRegisterField(emailController: _emailController),
+          EmailAuthField(emailController: _emailController),
           SizedBox(height: 30),
           // 4. فحص الباسورد (أقل حاجة 6 خانات)
-          PasswordRegisterField(passwordController: _passwordController),
+          PasswordAuthField(passwordController: _passwordController),
 
           SizedBox(height: 60),
           RegisterChoises(

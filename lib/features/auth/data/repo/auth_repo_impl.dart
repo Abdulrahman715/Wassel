@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:wassel/core/errors/failure.dart';
 import 'package:wassel/core/service/api_service.dart';
+import 'package:wassel/features/auth/data/model/login_model.dart';
 import 'package:wassel/features/auth/data/model/register_model.dart';
 import 'package:wassel/features/auth/data/repo/auth_repo.dart';
 
@@ -32,12 +33,45 @@ class AuthRepoImpl implements AuthRepo {
       // 2. تحويل الـ JSON لـ Model عند النجاح
       RegisterModel registerModel = RegisterModel.fromJson(data);
       return right(registerModel);
-      
     } catch (e) {
       // 👈 اطبع الخطأ هنا في الـ Repository
-      print('=== REPO EXCEPTION ===');
-      print(e.toString());
-      print('======================');
+      // print('=== REPO EXCEPTION ===');
+      // print(e.toString());
+      // print('======================');
+      // 3. التقاط أي خطأ (سواء ServerFailure أو DioException) وتحويله لـ left
+      if (e is Failure) {
+        return left(e);
+      }
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, LoginModel>> loginUser({
+    required String phone,
+    required String password,
+  })async {
+    try {
+      // 1. استقبال البيانات من الـ API
+      var data = await apiService.postData(
+        'auth/login',
+        data: {
+          "phone": phone,
+          "password": password,
+        },
+      );
+
+      // 2. تحويل الـ JSON لـ Model عند النجاح
+      LoginModel loginModel = LoginModel.fromJson(data);
+      return right(loginModel);
+    } catch (e) {
+      // 👈 اطبع الخطأ هنا في الـ Repository
+      // print('=== REPO EXCEPTION ===');
+      // print(e.toString());
+      // print('======================');
       // 3. التقاط أي خطأ (سواء ServerFailure أو DioException) وتحويله لـ left
       if (e is Failure) {
         return left(e);

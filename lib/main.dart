@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wassel/core/service/setup_service_locator.dart';
 import 'package:wassel/core/utils/app_router.dart';
 import 'package:wassel/features/auth/data/repo/auth_repo_impl.dart';
+import 'package:wassel/features/auth/presentation/manager/cubit/login_cubit.dart';
 import 'package:wassel/features/auth/presentation/manager/cubit/register_cubit.dart';
 import 'package:wassel/features/cart/presentation/view_models/cart_cubit/cart_cubit.dart';
 
@@ -22,6 +23,9 @@ class WasselApp extends StatelessWidget {
         BlocProvider(create: (context) => CartCubit()),
         BlocProvider(
           create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>()),
+        ),
+        BlocProvider(
+          create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
         ),
       ],
       child: MaterialApp.router(

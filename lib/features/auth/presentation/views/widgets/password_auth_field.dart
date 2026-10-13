@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wassel/features/auth/presentation/views/widgets/custom_text_field.dart';
 
-class PasswordRegisterField extends StatelessWidget {
-  const PasswordRegisterField({
+class PasswordAuthField extends StatelessWidget {
+  const PasswordAuthField({
     super.key,
     required TextEditingController passwordController,
   }) : _passwordController = passwordController;

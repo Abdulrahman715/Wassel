@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wassel/core/utils/colors_data.dart';
-import 'package:wassel/features/auth/presentation/views/widgets/login_view_body.dart';
+import 'package:wassel/features/auth/presentation/views/widgets/login_provide_cubit.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -9,7 +9,10 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsData.primaryColor,
-      body: SafeArea(bottom: false, child: LoginViewBody()),
+      body: SafeArea(
+        bottom: false,
+        child: LoginProvideCubit(),
+      ),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wassel/features/auth/presentation/views/widgets/custom_text_field.dart';
 
-class PhoneRegisterField extends StatelessWidget {
-  const PhoneRegisterField({
+class PhoneAuthField extends StatelessWidget {
+  const PhoneAuthField({
     super.key,
     required TextEditingController phoneController,
   }) : _phoneController = phoneController;

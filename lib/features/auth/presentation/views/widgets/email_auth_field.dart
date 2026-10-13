@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wassel/features/auth/presentation/views/widgets/custom_text_field.dart';
 
-class EmailRegisterField extends StatelessWidget {
-  const EmailRegisterField({
+class EmailAuthField extends StatelessWidget {
+  const EmailAuthField({
     super.key,
     required TextEditingController emailController,
   }) : _emailController = emailController;
