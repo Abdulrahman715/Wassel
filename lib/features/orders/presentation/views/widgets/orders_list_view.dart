@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wassel/core/widgets/message/empty_message.dart';
 import 'package:wassel/features/orders/data/models/order_model.dart';
 import 'package:wassel/features/orders/presentation/views/widgets/orders_list_view_body.dart';
 
@@ -20,7 +21,7 @@ class OrdersListView extends StatelessWidget {
         return true;
       } else if (tabType == 'on_process') {
         return order.status.toUpperCase() != 'Delivered';
-      }else{
+      } else {
         // Previous (الطلبات المنتهية/الموصلة)
         return order.status.toUpperCase() == 'Delivered';
       }
@@ -28,14 +29,15 @@ class OrdersListView extends StatelessWidget {
 
     //! لو مفيش اوردرات فى القسم ده
     if (filteredOrders.isEmpty) {
-      return const Center(
-        child: Text(
-          'لا توجد طلبات في هذا القسم',
-          style: TextStyle(color: Colors.grey, fontSize: 16),
-        ),
+      return EmptyMessage(
+        emptyMessage: tabType == 'all'
+            ? 'لا توجد طلبات بعد'
+            : tabType == 'on_process'
+            ? 'لا توجد طلبات قيد التنفيذ'
+            : 'لا توجد طلبات سابقة',
       );
     }
-
+    
     //! لو فى اعرضها
     return OrdersListViewBody(filteredOrders: filteredOrders);
   }
