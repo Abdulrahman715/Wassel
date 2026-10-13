@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wassel/core/utils/error_message.dart';
+import 'package:wassel/core/widgets/message/error_message.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/categories_cubit/categories_cubit.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/categories_cubit/categories_state.dart';
 import 'package:wassel/features/home/presentation/views/widgets/categories_section_body.dart';

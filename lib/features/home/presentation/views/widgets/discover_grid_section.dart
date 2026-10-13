@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wassel/core/utils/error_message.dart';
+import 'package:wassel/core/widgets/message/error_message.dart';
 import 'package:wassel/core/widgets/sliver_grid_products_body.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/home_random_products_cubit/home_random_products_cubit.dart';
 

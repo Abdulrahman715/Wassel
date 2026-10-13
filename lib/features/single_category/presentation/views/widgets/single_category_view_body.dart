@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wassel/core/widgets/empty_categories_message.dart';
+import 'package:wassel/core/widgets/message/empty_message.dart';
 import 'package:wassel/core/widgets/sliver_grid_products_body.dart';
 import 'package:wassel/features/home/data/models/category_model.dart';
 import 'package:wassel/features/single_category/presentation/views/widgets/custom_category_app_bar.dart';

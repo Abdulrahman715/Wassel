@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wassel/core/utils/error_message.dart';
+import 'package:wassel/core/widgets/message/error_message.dart';
 import 'package:wassel/core/utils/loading_style.dart';
 import 'package:wassel/core/widgets/custom_category_app_bar.dart';
 import 'package:wassel/core/widgets/sliver_grid_categories_body.dart';
 import 'package:wassel/features/categories/presentation/cubit/cubit/categories_cubit.dart';
-import 'package:wassel/core/widgets/empty_categories_message.dart';
+import 'package:wassel/core/widgets/message/empty_message.dart';
 import 'package:wassel/features/home/data/models/category_model.dart';
 
 class CategoriesViewBody extends StatelessWidget {

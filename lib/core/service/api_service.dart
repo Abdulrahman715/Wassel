@@ -13,7 +13,10 @@ class ApiService {
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      var response = await _dio.get('$_baseUrl$endPoint');
+      var response = await _dio.get(
+        '$_baseUrl$endPoint',
+        queryParameters: queryParameters, // 👈 أضف هذه لترسل الـ q والـ limit للسيرفر
+      );
 
       return response.data;
     } on DioException catch (dioError) {

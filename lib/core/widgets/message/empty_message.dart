@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wassel/core/utils/styles.dart';
 
 class EmptyMessage extends StatelessWidget {
   const EmptyMessage({super.key, required this.emptyMessage});
@@ -8,7 +9,10 @@ class EmptyMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(padding: EdgeInsets.all(20.0), child: Text(emptyMessage)),
+      child: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Text(emptyMessage, style: Styles.labelText),
+      ),
     );
   }
 }

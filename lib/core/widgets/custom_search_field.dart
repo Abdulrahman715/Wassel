@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wassel/features/search/presentation/manager/cubit/search_cubit.dart';
 
 class CustomSearchField extends StatefulWidget {
-  const CustomSearchField({super.key, required this.readOnly, this.onTap});
+  const CustomSearchField({
+    super.key,
+    required this.readOnly,
+    this.onTap,
+    this.onChanged,
+  });
 
   final bool readOnly;
   final void Function()? onTap;
+  final void Function(String)? onChanged;
 
   @override
   State<CustomSearchField> createState() => _CustomSearchFieldState();
@@ -26,6 +34,7 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
       child: TextFormField(
         controller: _searchController,
         readOnly: widget.readOnly,
+        onChanged: widget.onChanged,
         onTap: widget.onTap,
         decoration: InputDecoration(
           hintText: '...ابحث عن المنتجات',
@@ -45,12 +54,12 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
           ),
           prefixIcon: IconButton(
             onPressed: () {
-              // اختيارياً: جعل أيقونة العدسة تبحث بالكلمة المكتوبة حالياً
-              // if (_searchController.text.isNotEmpty) {
-              //   BlocProvider.of<SearchCubit>(
-              //     context,
-              //   ).searchBooks(query: _searchController.text);
-              // }
+              //? اختيارياً: جعل أيقونة العدسة تبحث بالكلمة المكتوبة حالياً
+              if (_searchController.text.isNotEmpty) {
+                BlocProvider.of<SearchCubit>(
+                  context,
+                ).searchProducts(query: _searchController.text);
+              }
             },
             icon: const Icon(Icons.search_outlined, color: Colors.grey),
           ),
@@ -60,8 +69,8 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
               _searchController.clear();
 
               // 2. إرجاع الـ Cubit للحالة الابتدائية لعرض جملة (Search for books...)
-              // BlocProvider.of<SearchCubit>(context).resetSearch();
-              // BlocProvider.of<SearchCubit>(context).searchBooks(query: '');
+              BlocProvider.of<SearchCubit>(context).resetSearch();
+              // BlocProvider.of<SearchCubit>(context).searchProducts(query: '');
             },
             icon: const Icon(Icons.close, color: Colors.grey),
           ),

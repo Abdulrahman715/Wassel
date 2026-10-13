@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wassel/core/utils/app_router.dart';
-import 'package:wassel/core/widgets/category_item_shimmer.dart';
+import 'package:wassel/core/widgets/shimmer/category_item_shimmer.dart';
 import 'package:wassel/features/home/data/models/category_model.dart';
 import 'package:wassel/features/home/presentation/views/widgets/category_item.dart';
 

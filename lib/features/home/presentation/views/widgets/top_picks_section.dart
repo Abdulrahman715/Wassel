@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wassel/core/utils/error_message.dart';
+import 'package:wassel/core/widgets/message/error_message.dart';
 import 'package:wassel/features/home/presentation/manager/cubit/home_top_products_cubit/home_top_products_cubit.dart';
 import 'package:wassel/features/home/presentation/views/widgets/custom_top_picks_body.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wassel/core/utils/styles.dart';
-import 'package:wassel/core/widgets/sliver_grid_products_body.dart';
+import 'package:wassel/features/search/presentation/views/widgets/search_states_body.dart';
 import 'package:wassel/features/search/presentation/views/widgets/search_text_field.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -18,10 +18,9 @@ class SearchViewBody extends StatelessWidget {
           SizedBox(height: 30),
           Text('Search Result', style: Styles.textStyle18),
 
+          // عرض النتائج بناءً على الحالة
           Expanded(
-            child: CustomScrollView(
-              slivers: [SliverGridProductsBody(products: [] , isLoading: false,)],
-            ),
+            child: SearchStatesBody(),
           ),
         ],
       ),

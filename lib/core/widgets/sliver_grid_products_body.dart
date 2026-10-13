@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wassel/core/widgets/product_card.dart';
-import 'package:wassel/core/widgets/product_card_shimmer.dart';
+import 'package:wassel/core/widgets/shimmer/product_card_shimmer.dart';
 import 'package:wassel/features/home/data/models/product_model.dart';
 
 class SliverGridProductsBody extends StatelessWidget {

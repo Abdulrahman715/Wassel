@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wassel/core/utils/styles.dart';
 
 class ErrorMessage extends StatelessWidget {
   const ErrorMessage({super.key, required this.errMessage});
@@ -7,6 +8,11 @@ class ErrorMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text(errMessage));
+    return Center(
+      child: Text(
+        errMessage,
+        style: Styles.errorText.copyWith(fontWeight: FontWeight.bold),
+      ),
+    );
   }
 }
